@@ -23,7 +23,7 @@ def _to_image_src(url):
     return 'data:%s;base64,%s' % (content_type, base64.b64encode(response.read()).decode(encoding='ascii'))
 
 
-class Drawable(widgets.CoreWidget):
+class Drawable(widgets.Widget):
     """
     Base class for drawable objects and groups.
     """
