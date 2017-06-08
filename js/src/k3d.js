@@ -11,7 +11,6 @@ var widgets = require('@jupyter-widgets/controls'),
     PlotModel,
     PlotView,
     ObjectModel,
-    ObjectView,
     semverRange = '~' + require('../package.json').version,
     objectsList = {},
     plotsList = [];
@@ -21,7 +20,6 @@ require('es6-promise');
 ObjectModel = widgets.WidgetModel.extend({
     defaults: _.extend(_.result({}, 'widgets.WidgetModel.prototype.defaults'), {
         _model_name: 'ObjectModel',
-        _view_name: 'ObjectView',
         _model_module: 'k3d',
         _view_module: 'k3d',
         _model_module_version: semverRange,
@@ -67,8 +65,6 @@ ObjectModel = widgets.WidgetModel.extend({
         voxels: serialize.array_or_json
     }, widgets.WidgetModel.serializers)
 });
-
-ObjectView = widgets.WidgetView.extend({});
 
 PlotModel = widgets.DOMWidgetModel.extend({
     defaults: _.extend(_.result({}, 'widgets.DOMWidgetModel.prototype.defaults'), {
@@ -239,5 +235,4 @@ module.exports = {
     PlotModel: PlotModel,
     PlotView: PlotView,
     ObjectModel: ObjectModel,
-    ObjectView: ObjectView
 };
